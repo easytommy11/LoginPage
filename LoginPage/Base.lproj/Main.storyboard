@@ -11,7 +11,7 @@
         <!--Login Screen-->
         <scene sceneID="rRd-lM-e1s">
             <objects>
-                <viewController id="Tpe-1N-TfB" sceneMemberID="viewController">
+                <viewController id="Tpe-1N-TfB" customClass="ViewController" customModule="LoginPage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rCE-PZ-QfZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log In"/>
                                 <connections>
-                                    <segue destination="jqh-Lb-P99" kind="show" id="wte-nV-n8h"/>
+                                    <segue destination="jqh-Lb-P99" kind="show" id="z00-aE-jGm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUF-ZZ-8Uu">
@@ -32,12 +32,18 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot Username?"/>
+                                <connections>
+                                    <action selector="forgotUserName:" destination="Tpe-1N-TfB" eventType="touchUpInside" id="N2Z-gN-A7H"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pe7-1E-OOd">
                                 <rect key="frame" x="77" y="389" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="usernameButton:" destination="Tpe-1N-TfB" eventType="editingDidEnd" id="oNd-yV-HO6"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4C-Vd-87d">
                                 <rect key="frame" x="77" y="431" width="261" height="34"/>
@@ -51,6 +57,10 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forget Password?"/>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="Tpe-1N-TfB" eventType="touchUpInside" id="9DA-ba-ecl"/>
+                                    <action selector="forgotPasswordButton:" destination="Tpe-1N-TfB" eventType="touchUpInside" id="E6A-Ao-2Gp"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6QR-w4-etX"/>
@@ -58,7 +68,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login Screen" id="IcV-7S-Xcd"/>
                     <connections>
-                        <segue destination="jqh-Lb-P99" kind="show" id="0g4-aj-mAa"/>
+                        <outlet property="forgotPassword" destination="lHU-Mk-QSa" id="n7m-o4-jZF"/>
+                        <outlet property="forgotUsername" destination="rUF-ZZ-8Uu" id="nVH-rK-Y5f"/>
+                        <outlet property="usernameButton" destination="pe7-1E-OOd" id="YgG-BE-h9q"/>
+                        <segue destination="jqh-Lb-P99" kind="show" identifier="ForgotUsernameOrPassword" id="0g4-aj-mAa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4HU-QZ-Wh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -101,7 +114,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wte-nV-n8h"/>
+        <segue reference="0g4-aj-mAa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemIndigoColor">
